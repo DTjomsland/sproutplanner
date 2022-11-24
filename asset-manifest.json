@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sproutplanner_front/static/css/main.38b99415.css",
+    "main.js": "/sproutplanner_front/static/js/main.91dfd250.js",
+    "static/media/Quicksand-Medium.ttf": "/sproutplanner_front/static/media/Quicksand-Medium.e7f9096c960074f84b6c.ttf",
+    "static/media/Quicksand-Light.ttf": "/sproutplanner_front/static/media/Quicksand-Light.a7f8083e8b93da348dcc.ttf",
+    "index.html": "/sproutplanner_front/index.html",
+    "main.38b99415.css.map": "/sproutplanner_front/static/css/main.38b99415.css.map",
+    "main.91dfd250.js.map": "/sproutplanner_front/static/js/main.91dfd250.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38b99415.css",
+    "static/js/main.91dfd250.js"
+  ]
+}
