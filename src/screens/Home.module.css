@@ -1,0 +1,26 @@
+.screen {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #70BC86;
+    margin: 0;
+    padding-top:0;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height:200px;
+    margin-bottom: 150px;
+    margin-top: 5vh;
+}
+
+.log-out {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+}

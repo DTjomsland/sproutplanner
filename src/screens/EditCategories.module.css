@@ -1,0 +1,22 @@
+@font-face {
+  font-family: quickLight;
+  src: url(../fonts/Quicksand-Light.ttf);
+}
+
+.categories {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #70bc86;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 25px;
+}
+
+h1 {
+  color: #f7f0f5;
+  font-family: quickLight;
+  font-size: 40px;
+}

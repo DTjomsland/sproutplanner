@@ -1,0 +1,44 @@
+@font-face {
+    font-family: quickLight;
+    src: url(../../fonts/Quicksand-Light.ttf);
+  }
+  
+.cat-item {
+    margin-bottom: 30px;
+}
+
+.cat-card {
+    display: flex;
+    position: relative;
+    width: 70vw;
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+    margin-bottom: 15px;
+    
+}
+
+.cat-card p {
+    font-family: quickLight;
+    font-size: 35px;
+    align-self: center;
+    margin: auto;
+    color: #466060;
+}
+
+.edit-button {
+    background-image: url(../../images/editpencil.png);
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: transparent;
+    margin: 5px 3px;
+    position: absolute;
+    top: 0;
+    right:0;
+    
+    
+}
