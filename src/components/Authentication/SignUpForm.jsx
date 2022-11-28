@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import styles from "./SignupForm.module.css";
-import StandardButton from "./StandardButton";
+import React, { useState } from "react";
+import styles from "./SignUpForm.module.css";
+import StandardButton from "../Common/StandardButton";
 
 const SignupForm = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(false);
+  // const [message, setMessage] = useState(false);
   
 
   let handleSubmit = async (e) => {
@@ -21,14 +21,16 @@ const SignupForm = (props) => {
           user_password: password,
         }),
       });
+      const data = await res.json()
+      console.log(data);
       console.log(res)
       if (res.status === 200) {
         setName("");
         setEmail("");
         setPassword("")
-        setMessage(false);
+        // setMessage(false);
       } else {
-        setMessage(true);
+        // setMessage(true);
       }
     } catch (err) {
       console.log(err);

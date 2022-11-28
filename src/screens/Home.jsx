@@ -8,7 +8,7 @@ const Home = () => {
     <div className={`${styles["screen"]}`}>
       <SproutLogo />
       <div className={`${styles["nav"]}`}>
-        <a href="#"><StandardButton buttonText="Open Planner" buttonStyle="green-button" /></a>
+        <a href="./"><StandardButton buttonText="Open Planner" buttonStyle="green-button" /></a>
         <StandardButton
           buttonText="Edit Schedule"
           buttonStyle="white-border-button"

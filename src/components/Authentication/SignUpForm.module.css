@@ -1,0 +1,40 @@
+@font-face {
+    font-family: quickLight;
+    src: url(../../fonts/Quicksand-Light.ttf);
+  }
+
+.auth-form {
+    margin: 0 auto 10px auto;
+    width: 85vw;
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.auth-form label {
+    color: white;
+    font-family: quickLight;
+    font-size: 30px;
+}
+
+.input {
+    border-radius: 15px;
+    border: solid 3px #466060;
+    background-color: #FFFFFF50;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.input:last-of-type {
+    margin-bottom: 9vh;
+}
+
+.button {
+    margin-top: -2vh;
+}
+
+.error{
+    font-size: 5px;
+}

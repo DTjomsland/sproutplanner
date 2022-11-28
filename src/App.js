@@ -6,14 +6,10 @@ import Home from "./screens/Home";
 import EditCategories from "./screens/EditCategories";
 import CreateCategory from "./screens/CreateCategory";
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
-  Routes,
-  Link,
-  useRouteMatch,
-  useParams,
-} from "react-router-dom";
+  Routes
+} 
+from "react-router-dom";
 
 const App = () => {
   return (

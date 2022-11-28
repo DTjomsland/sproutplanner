@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Signup.module.css";
 import SproutLogo from "../components/Logo/SproutLogo";
 import StandardButton from "../components/Common/StandardButton";
-import AuthForm from "../components/Common/SignupForm";
+import AuthForm from "../components/Authentication/SignUpForm";
 
 const Signup = () => {
   return (
