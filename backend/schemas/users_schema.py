@@ -14,7 +14,7 @@ class UserSchema(ma.Schema):
     user_feelings = fields.List(fields.Nested(UserFeelingSchema))
 
     # Validations
-    user_name = ma.String(required=True, validate=Length(min=1))
+    # user_name = ma.String(required=True, validate=Length(min=1))
     user_email = ma.Email(required=True)
     user_password = ma.String(required=True,  validate=Length(min=8))
     

@@ -9,7 +9,7 @@ const Login = () => {
     <div className={`${styles["screen"]}`}>
       <SproutLogo />
       <LoginForm buttonText="Login" buttonStyle="green-button" />
-      <StandardButton buttonText="Sign Up" buttonStyle="white-border-button" />
+      <a href = "./signup"><StandardButton buttonText="Sign Up" buttonStyle="white-border-button" /></a>
     </div>
   );
 };

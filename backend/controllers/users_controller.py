@@ -53,7 +53,7 @@ def account_login():
     user = Users.query.filter_by(user_email=user_fields["user_email"]).first()
 
     if not user or not bcrypt.check_password_hash(user.user_password, user_fields["user_password"]):
-        return abort(401, description="Invalid Username or Password")
+        return abort(401, description="Invalid Email or Password")
 
     # Generates a token that is set to the user_id value. Good for 30 days
     access_token = create_access_token(identity=str(

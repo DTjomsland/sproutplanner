@@ -1,5 +1,6 @@
 from main import db
 from flask import Blueprint, jsonify, request
+from flask_cors import CORS, cross_origin
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from marshmallow.exceptions import ValidationError
 from models.user_category import UserCategory
@@ -10,6 +11,7 @@ user_category = Blueprint('user_category', __name__, url_prefix='/usercategory')
 
 # Get request for all user categories for logged in user
 @user_category.route('/', methods=['GET'])
+@cross_origin()
 # Requires token
 @jwt_required()
 def get_user_categories():
