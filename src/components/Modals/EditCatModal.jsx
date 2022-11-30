@@ -31,7 +31,7 @@ const EditCatModal = (props) => {
       });
       const data = await res.json();
       console.log(data);
-
+      props.updateCat(data)
       if (res.status === 201) {
         props.toggleModal()
         setCatName("");

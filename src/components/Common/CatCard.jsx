@@ -5,7 +5,7 @@ import EditCatModal from "../Modals/EditCatModal";
 
 const CatCard = (props) => {
 const [modal, setModal] = useState(false);
-
+const catID = props.itemID
 
   // Modal handler
 const toggleModal = () => {
@@ -15,7 +15,7 @@ const toggleModal = () => {
 };
 
   return (
-    <div className={`${styles["cat-item"]}`}>
+    <div className={`${styles["cat-item"]}`} >
       <div className={`${styles["cat-card"]}`}>
         <p>{props.title}</p>
         <button
@@ -28,7 +28,7 @@ const toggleModal = () => {
         buttonStyle="small-green-button"
         buttonText={`Edit ${props.title} Activities`}
       />
-      <EditCatModal itemID = {props.itemID} toggleModal={toggleModal} showModal = {modal}/> 
+      <EditCatModal itemID = {props.itemID} toggleModal={toggleModal} updateCat={props.updateCat} showModal = {modal}/> 
     </div>
   );
 };

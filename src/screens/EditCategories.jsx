@@ -7,8 +7,7 @@ import styles from "./EditCategories.module.scss";
 
 const EditCategories = () => {
   const [cat, setCat] = useState([]);
-  
-
+  // Retrieve JWT from browser
   const cookieValue = document.cookie
     .split("; ")
     .find((row) => row.startsWith("token"))
@@ -27,7 +26,6 @@ const EditCategories = () => {
       .then((res) => res.json())
       .then((data) => {
         setCat(data);
-        console.log(data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -35,16 +33,35 @@ const EditCategories = () => {
   }, [cookieValue]);
 
 
+  const updateCat = (newData) => {
+    let newCat = [].concat(newData, cat)
+    setCat(newCat)
+    console.log(newCat)
+  }
+
+
+  // Creation of category cards from API array
+  const categories = cat
+    .sort((a, b) => a.user_category_id - b.user_category_id)
+    .map((category) => {
+      return (
+        <div key={category.user_category_id}>
+          <CatCard
+            updateCat={updateCat}
+            itemID={category.user_category_id}
+            title={category.user_category_name}
+          />
+        </div>
+      );
+    });
+
+ 
+
+
   return (
     <div className={`${styles["categories"]}`}>
       <h1>Categories</h1>
-      {cat.map((category) => (
-        <CatCard
-          key={category.user_category_id}
-          itemID={category.user_category_id}
-          title={category.user_category_name}
-        />
-      ))}
+      {categories}
       <a href="./createcategory">
         <CreateNewCard />
       </a>
