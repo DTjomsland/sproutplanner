@@ -32,31 +32,30 @@ const EditCategories = () => {
       });
   }, [cookieValue]);
 
+  const updateCat = (catID, newName) => {
+    const newCat = cat.map((object) => {
+      if (object.user_category_id  === catID) {
+        return { ...object, user_category_name: `${newName}` };
+      }
+      return object;
+    });
 
-  const updateCat = (newData) => {
-    let newCat = [].concat(newData, cat)
-    setCat(newCat)
-    console.log(newCat)
-  }
-
+    setCat(newCat);
+    console.log(newCat);
+  };
 
   // Creation of category cards from API array
   const categories = cat
     .sort((a, b) => a.user_category_id - b.user_category_id)
     .map((category) => {
       return (
-        <div key={category.user_category_id}>
-          <CatCard
-            updateCat={updateCat}
-            itemID={category.user_category_id}
-            title={category.user_category_name}
-          />
-        </div>
+        <CatCard
+          updateCat={updateCat}
+          itemID={category.user_category_id}
+          title={category.user_category_name}
+        />
       );
     });
-
- 
-
 
   return (
     <div className={`${styles["categories"]}`}>

@@ -64,7 +64,7 @@ def update_category(user_category_id):
     # Checks to see if the category already exists for specific user. Error if exists.
     category_check = UserCategory.query.filter_by(user_id = user, user_category_name = category_fields["user_category_name"]).first()
     if category_check:
-        return {"error": "A category with that name already exists."}
+        return {"error": "A category with that name already exists."}, 401
     # Update the category name
     category.user_category_name = category_fields["user_category_name"]
     # Commit the changes to the database

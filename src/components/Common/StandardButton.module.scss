@@ -1,20 +1,20 @@
 @import './../../variables.scss';
 
 .green-button {
-  width: 85vw;
+  width: 100%;
   border: none;
   border-radius: 15px;
   background-color: #466060;
   height: 50px;
   color: white;
   font-family: quickLight;
-  font-size: 30px;
+  font-size: 20px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
   cursor: pointer;
 }
 
 .green-border-button {
-  width: 85vw;
+  width: 100%;
   border: solid 3px $primary-accent;
   border-radius: 15px;
   background-color: $input-color;
@@ -27,7 +27,7 @@
 }
 
 .white-border-button {
-  width: 85vw;
+  width: 100%;
   border: solid 3px $secondary-accent;
   border-radius: 15px;
   background-color: $secondary-accent;
@@ -40,7 +40,7 @@
 }
 
 .small-green-button {
-  width: 70vw;
+  width: 100%;
   border: none;
   border-radius: 15px;
   background-color: $primary-accent;
@@ -53,7 +53,7 @@
 }
 
 .small-green-border-button {
-  width: 70vw;
+  width: 100%;
   border: solid 2px $primary-accent;
   border-radius: 15px;
   background-color: $input-color;
@@ -61,6 +61,20 @@
   color: $primary-accent;
   font-family: $light-font;
   font-size: 25px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.small-red-button {
+  width: 30%;
+  margin: auto;
+  border: solid 2px rgb(207, 91, 91);
+  border-radius: 15px;
+  background-color: $input-color;
+  height: 40px;
+  color: rgb(207, 91, 91);
+  font-family: $light-font;
+  font-size: 20px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   cursor: pointer;
 }
