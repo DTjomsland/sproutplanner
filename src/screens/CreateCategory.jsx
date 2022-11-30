@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./CreateCategory.module.css";
+import styles from "./CreateCategory.module.scss";
 import StandardButton from "../components/Common/StandardButton";
 import SingleForm from "../components/Common/SingleForm";
 

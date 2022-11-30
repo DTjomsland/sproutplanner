@@ -1,0 +1,25 @@
+// Fonts
+@font-face {
+    font-family: quickLight;
+    src: url(./fonts/Quicksand-Light.ttf);
+  }
+  
+  @font-face {
+    font-family: quickMedium;
+    src: url(./fonts/Quicksand-Medium.ttf);
+  }
+  
+  @font-face {
+    font-family: quickBold;
+    src: url(./fonts/Quicksand-Bold.ttf);
+  }
+  
+  $light-font: quickLight;
+  $medium-font: quickMedium;
+  $bold-font: quickBold;
+  
+  //Colors
+  $background-color: #70bc86;
+  $primary-accent: #466060;
+  $secondary-accent: white;
+  $input-color: #FFFFFF50

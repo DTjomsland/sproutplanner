@@ -1,7 +1,4 @@
-@font-face {
-  font-family: quickLight;
-  src: url(../fonts/Quicksand-Light.ttf);
-}
+@import './../variables.scss';
 
 .categories {
   width: 100vw;
@@ -9,14 +6,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #70bc86;
   margin: 0;
   padding-top: 0;
   padding-bottom: 25px;
 }
 
 h1 {
-  color: #f7f0f5;
-  font-family: quickLight;
+  color: $secondary-accent;
+  font-family: $light-font;
   font-size: 40px;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import LogoImage from "../../images/SproutLogo.png"
-import styles from "./SproutLogo.module.css"
+import styles from "./SproutLogo.module.scss"
 
 const SproutLogo = () => {
 

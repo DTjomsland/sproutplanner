@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Home.module.css";
+import styles from "./Home.module.scss";
 import SproutLogo from "../components/Logo/SproutLogo";
 import StandardButton from "../components/Common/StandardButton";
 

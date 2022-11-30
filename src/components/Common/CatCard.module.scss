@@ -1,7 +1,4 @@
-@font-face {
-    font-family: quickLight;
-    src: url(../../fonts/Quicksand-Light.ttf);
-  }
+@import './../../variables.scss';
   
 .cat-item {
     margin-bottom: 30px;
@@ -12,19 +9,21 @@
     position: relative;
     width: 70vw;
     height: 200px;
-    background-color: white;
+    background-color: $secondary-accent;
     border-radius: 15px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
     margin-bottom: 15px;
+    overflow: hidden;
     
 }
 
 .cat-card p {
-    font-family: quickLight;
+    font-family: $light-font;
     font-size: 35px;
     align-self: center;
+    text-align: center;
     margin: auto;
-    color: #466060;
+    color: $primary-accent;
 }
 
 .edit-button {

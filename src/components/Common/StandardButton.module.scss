@@ -1,7 +1,4 @@
-@font-face {
-  font-family: quickLight;
-  src: url(../../fonts/Quicksand-Light.ttf);
-}
+@import './../../variables.scss';
 
 .green-button {
   width: 85vw;
@@ -18,12 +15,12 @@
 
 .green-border-button {
   width: 85vw;
-  border: solid 3px #466060;
+  border: solid 3px $primary-accent;
   border-radius: 15px;
-  background-color: #FFFFFF50;
+  background-color: $input-color;
   height: 50px;
-  color: #466060;
-  font-family: quickLight;
+  color: $primary-accent;
+  font-family: $light-font;
   font-size: 30px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   cursor: pointer;
@@ -31,12 +28,12 @@
 
 .white-border-button {
   width: 85vw;
-  border: solid 3px #EEEEEE;
+  border: solid 3px $secondary-accent;
   border-radius: 15px;
-  background-color: #EEEEEE;
+  background-color: $secondary-accent;
   height: 50px;
-  color: #466060;
-  font-family: quickLight;
+  color: $primary-accent;
+  font-family: $light-font;
   font-size: 30px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
   cursor: pointer;
@@ -46,10 +43,10 @@
   width: 70vw;
   border: none;
   border-radius: 15px;
-  background-color: #466060;
+  background-color: $primary-accent;
   height: 50px;
-  color: white;
-  font-family: quickLight;
+  color: $secondary-accent;
+  font-family: $light-font;
   font-size: 20px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
   cursor: pointer;
@@ -57,12 +54,12 @@
 
 .small-green-border-button {
   width: 70vw;
-  border: solid 2px #466060;
+  border: solid 2px $primary-accent;
   border-radius: 15px;
-  background-color: #FFFFFF50;
+  background-color: $input-color;
   height: 50px;
-  color: #466060;
-  font-family: quickLight;
+  color: $primary-accent;
+  font-family: $light-font;
   font-size: 25px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   cursor: pointer;

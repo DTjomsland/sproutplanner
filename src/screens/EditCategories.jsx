@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import StandardButton from "../components/Common/StandardButton";
 import CatCard from "../components/Common/CatCard";
 import CreateNewCard from "../components/Common/CreateNewCard";
-import styles from "./EditCategories.module.css";
+import styles from "./EditCategories.module.scss";
 
 const EditCategories = () => {
   const [cat, setCat] = useState([]);
@@ -12,7 +12,6 @@ const EditCategories = () => {
   .split('; ')
   .find(row => row.startsWith('token'))
   .split('=')[1];
-
 
   useEffect(() => {
       fetch('http://localhost:5000/usercategory/',  {

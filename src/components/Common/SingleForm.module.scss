@@ -1,10 +1,12 @@
+@import './../../variables.scss';
+
 .single-form {
     /* margin: 0 auto 10px auto; */
     width: 85vw;
     display: flex;
     flex-direction: column;
-    color: white;
-    font-family: quickLight;
+    color: $secondary-accent;
+    font-family: $light-font;
     font-size: 30px;
     padding: 0;
     margin-bottom: 30px;
@@ -13,8 +15,8 @@
 
 .input {
     border-radius: 15px;
-    border: solid 3px #466060;
-    background-color: #FFFFFF50;
+    border: solid 3px $primary-accent;
+    background-color: $input-color;
     height: 40px;
     margin-bottom: 0;
     margin-top: 15px;

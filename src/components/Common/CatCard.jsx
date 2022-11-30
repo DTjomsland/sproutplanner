@@ -1,10 +1,8 @@
 import React from "react";
-import styles from "./CatCard.module.css";
+import styles from "./CatCard.module.scss";
 import StandardButton from "./StandardButton";
 
 const CatCard = (props) => {
-  let editButtonStyle = "small-green-button";
-  let editButtonText = "Edit Exercise Activities";
 
   return (
     <div className={`${styles["cat-item"]}`}>
@@ -13,8 +11,7 @@ const CatCard = (props) => {
         <button className={`${styles["edit-button"]}`}></button>
       </div>
       <StandardButton
-        buttonText={editButtonText}
-        buttonStyle={editButtonStyle}
+        buttonStyle="small-green-button"
         buttonText={`Edit ${props.title} Activities`}
       />
     </div>

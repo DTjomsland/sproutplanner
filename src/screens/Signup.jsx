@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Signup.module.css";
+import styles from "./Signup.module.scss";
 import SproutLogo from "../components/Logo/SproutLogo";
 import StandardButton from "../components/Common/StandardButton";
 import AuthForm from "../components/Authentication/SignUpForm";

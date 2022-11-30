@@ -1,7 +1,4 @@
-@font-face {
-    font-family: quickLight;
-    src: url(../../fonts/Quicksand-Light.ttf);
-  }
+@import './../../variables.scss';
 
 .auth-form {
     margin: 0 auto 10px auto;
@@ -13,15 +10,15 @@
 }
 
 .auth-form label {
-    color: white;
-    font-family: quickLight;
+    color: $secondary-accent;
+    font-family: $light-font;
     font-size: 30px;
 }
 
 .input {
     border-radius: 15px;
-    border: solid 3px #466060;
-    background-color: #FFFFFF50;
+    border: solid 3px $primary-accent;
+    background-color: $input-color;
     height: 40px;
     margin-bottom: 5px;
     margin-top: 5px;

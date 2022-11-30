@@ -1,7 +1,7 @@
 import React from "react";
 import SproutLogo from "../components/Logo/SproutLogo";
 import StandardButton from "../components/Common/StandardButton";
-import styles from "./Authentication.module.css";
+import styles from "./Authentication.module.scss";
 
 const authentication = () => {
   

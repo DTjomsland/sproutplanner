@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 body {
   height: 100%;
   width: 100%;
@@ -8,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #70BC86;
+  background-color: $background-color;
 }
 
 code {

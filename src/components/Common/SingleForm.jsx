@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './SingleForm.module.css'
+import styles from './SingleForm.module.scss'
 import StandardButton from './StandardButton'
 
 const SingleForm = (props) => {

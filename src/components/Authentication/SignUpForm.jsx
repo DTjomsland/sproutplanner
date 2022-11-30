@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./SignUpForm.module.css";
+import styles from "./SignUpForm.module.scss";
 import StandardButton from "../Common/StandardButton";
 
 const SignupForm = (props) => {

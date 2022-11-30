@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Login.module.css";
+import styles from "./Login.module.scss";
 import SproutLogo from "../components/Logo/SproutLogo";
 import StandardButton from "../components/Common/StandardButton";
 import LoginForm from "../components/Authentication/LoginForm";
