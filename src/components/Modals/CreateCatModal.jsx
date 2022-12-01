@@ -52,7 +52,6 @@ const CreateCatModal = (props) => {
           handleSubmit={handleSubmit}
           buttonText="Create Category"
           title="Category Title:"
-          textColor="whiteText"
           catName={catName}
           textColor="greenText"
         />
