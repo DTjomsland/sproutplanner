@@ -1,10 +1,9 @@
 import React from "react";
-import Authentication from "./screens/Authentication";
+import Welcome from "./screens/Welcome";
 import Login from "./screens/Login";
 import Signup from "./screens/Signup";
 import Home from "./screens/Home";
 import EditCategories from "./screens/EditCategories";
-import CreateCategory from "./screens/CreateCategory";
 import {
   Route,
   Routes
@@ -15,10 +14,9 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/welcome" element={<Authentication />} />
+      <Route path="/welcome" element={<Welcome />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/createcategory" element={<CreateCategory />} />
       <Route path="/editcategories" element={<EditCategories />} />
     </Routes>
     // <Home />

@@ -1,9 +1,9 @@
 import React from "react";
 import SproutLogo from "../components/Logo/SproutLogo";
 import StandardButton from "../components/Common/StandardButton";
-import styles from "./Authentication.module.scss";
+import styles from "./Welcome.module.scss";
 
-const authentication = () => {
+const Welcome = () => {
   
   return (
     <div className={`${styles["screen"]}`}>
@@ -16,4 +16,4 @@ const authentication = () => {
   );
 };
 
-export default authentication;
+export default Welcome;

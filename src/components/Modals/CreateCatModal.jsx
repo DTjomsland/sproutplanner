@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import styles from "./EditCatModal.module.scss";
+import styles from "./Modals.module.scss";
 import SingleForm from "../Common/SingleForm.jsx";
-import StandardButton from "../Common/StandardButton.jsx";
 
 const CreateCatModal = (props) => {
   const [catName, setCatName] = useState("");
@@ -47,6 +46,7 @@ const CreateCatModal = (props) => {
   return (
     <div className={`${styles[props.showModal ? "overlay" : "close-modal"]}`}>
       <div className={`${styles["modal-content"]}`}>
+      <div onClick = {props.toggleModal} className={`${styles["x"]}`}></div>
         <SingleForm
           handleChange={handleChange}
           handleSubmit={handleSubmit}
