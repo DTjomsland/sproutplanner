@@ -14,6 +14,7 @@ const SingleForm = (props) => {
           className={`${styles["input"]}`}
           type="text"
           onChange={props.handleChange}
+          value={props.catName}
           name="uname"
           input maxlength="10"
           required

@@ -6,6 +6,7 @@ const StandardButton = (props) => {
   return (
       <button
         type={props.buttonType}
+        onClick={props.onClick}
         className={`${styles[props.buttonStyle]}`}
       >
         {props.buttonText}

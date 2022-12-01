@@ -85,7 +85,7 @@ def delete_category(user_category_id):
     # Save the changes in the database
     db.session.commit()
     # Return message if deleted successfully
-    return {"message": "Category deleted successfully."}
+    return {"message": "Category deleted successfully."}, 201
 
 # Validation error messages
 @user_category.errorhandler(ValidationError)
