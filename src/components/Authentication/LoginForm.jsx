@@ -48,7 +48,7 @@ const saveCookie = (data) => {
 
   return (
     <form onSubmit={handleSubmit} className={`${styles["auth-form"]}`}>
-      <label for="Email">
+      <label htmlFor="Email">
         <b>Email:</b>
       </label>
       <input
@@ -59,7 +59,7 @@ const saveCookie = (data) => {
         onChange={(e) => setEmail(e.target.value)}
         required
       ></input>
-      <label for="psw">
+      <label htmlFor="psw">
         <b>Password:</b>
       </label>
       <input

@@ -76,9 +76,7 @@ const EditCatModal = (props) => {
       if (res.status === 201) {
         props.toggleModal();
         setCatName("");
-        // setMessage(false);
       } else {
-        // setMessage(true);
       }
     } catch (err) {
       console.log(err);

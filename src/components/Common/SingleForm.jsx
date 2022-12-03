@@ -7,7 +7,7 @@ const SingleForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className={`${styles["single-form"]}`}>
-        <label for="uname" className={`${styles[props.textColor]}`}>
+        <label htmlFor="uname" className={`${styles[props.textColor]}`}>
           <b>{props.title}</b>
         </label>
         <input
@@ -16,7 +16,7 @@ const SingleForm = (props) => {
           onChange={props.handleChange}
           value={props.catName}
           name="uname"
-          input maxlength="10"
+          maxLength="10"
           required
         ></input>
         <StandardButton

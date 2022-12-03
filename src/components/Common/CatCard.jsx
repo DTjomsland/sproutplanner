@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./CatCard.module.scss";
 import StandardButton from "./StandardButton";
 import EditCatModal from "../Modals/EditCatModal";
+import {setSelectedCategory} from "../../store/slices/categorySlice"
+import {useSelector, useDispatch} from 'react-redux';
+import { Link } from "react-router-dom";
 
 const CatCard = (props) => {
+  const dispatch = useDispatch();
   const [editModal, setEditModal] = useState(false);
-  const catID = props.itemID;
+  
+  
 
   // Modal handler
   const toggleEditModal = () => {
-    // let key = category.user_category_id
-    // console.log(key)
+    
     setEditModal(!editModal);
   };
+
+  const handleClick = () => {
+    dispatch(setSelectedCategory(props.itemID))
+    console.log('D')
+  }
+
+
+ console.log(props.itemID)
 
   return (
     <div className={`${styles["cat-item"]}`}>
@@ -24,16 +36,20 @@ const CatCard = (props) => {
           className={`${styles["edit-button"]}`}
         ></button>
       </div>
+      <Link to='/editactivities'>
       <StandardButton
         buttonStyle="small-green-button"
         buttonText={`Edit ${props.title} Activities`}
+        onClick={handleClick}
       />
+      </Link>
       <EditCatModal
         itemID={props.itemID}
         toggleModal={toggleEditModal}
         updateCat={props.updateCat}
         deleteCat={props.deleteCat}
         showModal={editModal}
+        
       />
     </div>
   );

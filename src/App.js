@@ -4,11 +4,8 @@ import Login from "./screens/Login";
 import Signup from "./screens/Signup";
 import Home from "./screens/Home";
 import EditCategories from "./screens/EditCategories";
-import {
-  Route,
-  Routes
-} 
-from "react-router-dom";
+import EditActivities from "./screens/EditActivities";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
@@ -18,8 +15,8 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/editcategories" element={<EditCategories />} />
+      <Route path="/editactivities" element={<EditActivities />} />
     </Routes>
-    // <Home />
   );
 };
 

@@ -40,7 +40,7 @@ const SignupForm = (props) => {
   
   return (
     <form onSubmit={handleSubmit} className={`${styles["auth-form"]}`}>
-        <label for="uname">
+        <label htmlFor="uname">
           <b>Username:</b>
         </label>
         <input
@@ -51,7 +51,7 @@ const SignupForm = (props) => {
           onChange={(e) => setName(e.target.value)}
           required
         ></input>
-        <label for="uname">
+        <label htmlFor="uname">
           <b>Email:</b>
         </label>
         <input
@@ -63,7 +63,7 @@ const SignupForm = (props) => {
           required
         ></input>
         {/* <p className= {!message && styles.error}>Email is already in use</p> */}
-        <label for="psw">
+        <label htmlFor="psw">
           <b>Password:</b>
         </label>
         <input

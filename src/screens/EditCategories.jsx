@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import StandardButton from "../components/Common/StandardButton";
 import CatCard from "../components/Common/CatCard";
 import CreateNewCard from "../components/Common/CreateNewCard";
 import CreateCatModal from "../components/Modals/CreateCatModal";
 import styles from "./EditCategories.module.scss";
 
+
 const EditCategories = () => {
   const [cat, setCat] = useState([]);
   const [createModal, setCreateModal] = useState(false);
+  
 
   // Retrieve JWT from browser
   const cookieValue = document.cookie
@@ -60,7 +62,6 @@ const EditCategories = () => {
   };
 
 
-
   //Handles State for Deleting Cat
   const deleteCat = (catID) => {
     const newCat = cat.filter((object) => object.user_category_id !== catID);
@@ -81,6 +82,8 @@ const EditCategories = () => {
         />
       );
     });
+
+    
 
   return (
     <div className={`${styles["categories"]}`}>
