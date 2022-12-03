@@ -19,12 +19,11 @@ const CatCard = (props) => {
   };
 
   const handleClick = () => {
-    dispatch(setSelectedCategory(props.itemID))
-    console.log('D')
+    dispatch(setSelectedCategory(props.category))
   }
 
 
- console.log(props.itemID)
+//  console.log(props.category)
 
   return (
     <div className={`${styles["cat-item"]}`}>

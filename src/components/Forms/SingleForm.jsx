@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./SingleForm.module.scss";
-import StandardButton from "./StandardButton";
+import StandardButton from "../Common/StandardButton";
 
 const SingleForm = (props) => {
-
   return (
     <form onSubmit={props.handleSubmit}>
       <div className={`${styles["single-form"]}`}>
@@ -14,7 +13,6 @@ const SingleForm = (props) => {
           className={`${styles["input"]}`}
           type="text"
           onChange={props.handleChange}
-          value={props.catName}
           name="uname"
           maxLength="10"
           required
@@ -23,6 +21,7 @@ const SingleForm = (props) => {
           buttonType="submit"
           buttonText={props.buttonText}
           buttonStyle="green-button"
+          onClick={props.onClick}
         />
       </div>
     </form>

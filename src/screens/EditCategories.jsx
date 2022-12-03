@@ -79,6 +79,7 @@ const EditCategories = () => {
           deleteCat={deleteCat}
           itemID={category.user_category_id}
           title={category.user_category_name}
+          category={category}
         />
       );
     });

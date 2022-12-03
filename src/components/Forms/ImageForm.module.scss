@@ -9,6 +9,7 @@ form{
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: $secondary-accent;
     font-family: $light-font;
     font-size: 25px;
@@ -32,4 +33,12 @@ form{
 
 .whiteText {
     color: $secondary-accent;
+}
+
+.upload {
+    display: flex;
+    text-align: center;
+    margin: 15px auto 30px auto;;
+    width: 100%;
+    color: $primary-accent;
 }

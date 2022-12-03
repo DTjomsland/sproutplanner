@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Modals.module.scss";
-import SingleForm from "../Common/SingleForm.jsx";
+import SingleForm from "../Forms/SingleForm.jsx";
 import StandardButton from "../Common/StandardButton.jsx";
 
 const EditCatModal = (props) => {

@@ -6,7 +6,7 @@ const getCategories = createAsyncThunk(
 
 
 const initialState = {
-  category: null,
+  category: {},
 };
 
 const categorySlice = createSlice({

@@ -41,7 +41,9 @@ body.active-modal {
 
 p {
   color: $primary-accent;
+  font-size: 25px;
 }
+
 .x {
   position: absolute;
   top: -9px;
@@ -76,4 +78,4 @@ p {
 .x:hover {
   cursor: pointer;
 }
-// .x:hover::before, .x:hover::after { display: block; }
+

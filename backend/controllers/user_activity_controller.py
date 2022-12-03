@@ -31,7 +31,7 @@ def new_activity(user_category_id):
     # Check to see if the activity exists for user/return error if it does 
     activity_check = UserActivity.query.filter_by(user_category_id = category, user_activity_name = activity_fields["user_activity_name"]).first()
     if activity_check:
-        return {"error": "An activity with that name already exists."}
+        return {"error": "An activity with that name already exists."}, 400
     # Creates a new activity object from entered information.
     activity = UserActivity(
         user_activity_name = activity_fields ['user_activity_name'],
@@ -52,7 +52,7 @@ def update_activity(user_category_id, activity_id):
     # Find the activity in the database. Return error if it doesn't exist
     activity = UserActivity.query.get(activity_id)
     if not activity:
-        return {"error": "Activity does no exist."}, 404
+        return {"error": "Activity does not exist."}, 404
     # Retrieve the activity details 
     activity_fields = user_activity_schema.load(request.json)
     # Check to see if the activity exists for user/return error if it does 
@@ -79,7 +79,7 @@ def delete_activity(activity_id):
     # Save the changes in the database
     db.session.commit()
     # Return message if deleted successfully
-    return {"message": "Activity deleted successfully."}
+    return {"message": "Activity deleted successfully."}, 201
 
 # Validation error messages
 @user_activity.errorhandler(ValidationError)

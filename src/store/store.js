@@ -1,5 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import categorySlice from "./slices/categorySlice";
+import activitySlice from "./slices/activitySlice";
 import storage from "redux-persist/lib/storage";
 import {persistReducer} from "redux-persist";
 
@@ -11,6 +12,7 @@ const persisConfig = {
 
 const reducer = combineReducers({
     category: categorySlice,
+    activity: activitySlice,
 })
 
 const persistantReducer = persistReducer(persisConfig, reducer)

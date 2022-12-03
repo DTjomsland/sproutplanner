@@ -5,7 +5,7 @@ from flask_jwt_extended import jwt_required
 from models.user_icon import UserIcon
 from schemas.user_icon_schema import user_icon_schema, user_icons_schema
 from dotenv import load_dotenv
-from flask_cors import cross_origin
+from flask_cors import cross_origin, CORS
 from flask import jsonify
 import cloudinary
 import cloudinary.uploader
@@ -34,6 +34,7 @@ def get_user_icons(user_activity_id):
 @user_icon.route("/<int:user_activity_id>/upload", methods=['POST'])
 @jwt_required()
 @cross_origin()
+
 def upload_file(user_activity_id):
     # Rename router variable
     activity = user_activity_id
