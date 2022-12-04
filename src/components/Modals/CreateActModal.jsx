@@ -62,7 +62,7 @@ const CreateActModal = (props) => {
 
   
   let handleImageSubmit = async (event) => {
-      setFormDisplay(false);
+      
       event.preventDefault();
     fetch(`http://localhost:5000/usericon/${activity.user_activity_id}/upload`, {
         method: 'POST',
@@ -76,6 +76,9 @@ const CreateActModal = (props) => {
         //console.log(resp.json());
   
     }).then((body) => {
+      props.setIsIcon(true)
+      props.toggleCreateModal()
+      setFormDisplay(false);
         // TODO handle body
         // console.log(body);
         if(body.status) {

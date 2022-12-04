@@ -13,6 +13,7 @@ const EditActivities = () => {
   const [act, setAct] = useState([]);
   const [createModal, setCreateModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [isIcon, setIsIcon] = useState(false)
   const category = useSelector((state) => state.category.category);
 
   // Retrieve JWT from browser
@@ -75,6 +76,8 @@ const EditActivities = () => {
           itemID={activity.user_activity_id}
           title={activity.user_activity_name}
           activity={activity}
+          setIsIcon={setIsIcon}
+          isIcon={isIcon}
         />
       );
     });
@@ -97,6 +100,7 @@ const EditActivities = () => {
         showModal={createModal}
         toggleCreateModal={toggleCreateModal}
         categoryID={category.user_category_id}
+        setIsIcon={setIsIcon}
       />
       <DeleteActModal
         deleteAct={deleteAct}

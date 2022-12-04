@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";
 import styles from "./ActivityCard.module.scss";
-import basketball from "../../images/basketball.png";
 import {setSelectedActivity} from "../../store/slices/activitySlice"
 import {useSelector, useDispatch} from 'react-redux';
 import { Link } from "react-router-dom";
@@ -19,7 +18,7 @@ const ActivityCard = (props) => {
     .find((row) => row.startsWith("token"))
     .split("=")[1];
 
-// API call to retrieve activities
+// API call to retrieve icons
 useEffect(() => {
   fetch(`http://localhost:5000/usericon/${props.activity.user_activity_id}`, {
     method: "GET",
@@ -32,21 +31,23 @@ useEffect(() => {
     .then((res) => res.json())
     .then((data) => {
       setIcon(data);
+      props.setIsIcon(false);
     })
     .catch((err) => {
       console.log(err.message);
     });
-}, [cookieValue]);
+}, [cookieValue, props.isIcon]);
 
 const handleClick = () => {
   dispatch(setSelectedActivity(props.activity));
   props.toggleDeleteModal()
 }
-console.log(icon)
+
+
+if (icon.length === 0) {
   return (
     <div className={`${styles["act-item"]}`}>
       <div className={`${styles["act-card"]}`}>
-        <img src="https://previews.123rf.com/images/urfandadashov/urfandadashov1808/urfandadashov180824282/109059479-loading-vector-icon-isolated-on-transparent-background-loading-logo-concept.jpg" alt="Activity Card" />
         <p>{props.title}</p>
         <button
           type="button"
@@ -55,7 +56,25 @@ console.log(icon)
         ></button>
       </div>
     </div>
-  );
+  )
+}
+  else if (icon.length > 0)  {
+    return (
+      <div className={`${styles["act-item"]}`}>
+      <div className={`${styles["act-card"]}`}>
+        <img src={icon[0].user_icon_url} alt="Activity Card" />
+        <p>{props.title}</p>
+        <button
+          type="button"
+          onClick={handleClick}
+          className={`${styles["edit-button"]}`}
+        ></button>
+      </div>
+    </div>
+    )
+  }
 };
+
+
 
 export default ActivityCard;

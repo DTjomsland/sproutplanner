@@ -10,12 +10,11 @@ const ImageForm = (props) => {
             <b>Activity Image:</b>
           </label>
           <input
-            enctype="multipart/form-data"
             type="file"
             id="file"
             name="file"
             className={`${styles["upload"]}`}
-            accept="image/png, image/jpeg"
+            accept="image/png, image/gif, image/jpeg"
           />
           <StandardButton
             buttonType="submit"
