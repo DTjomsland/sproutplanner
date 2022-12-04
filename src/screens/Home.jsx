@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
 import SproutLogo from "../components/Logo/SproutLogo";
 import StandardButton from "../components/Common/StandardButton";
@@ -14,16 +15,18 @@ const Home = () => {
             buttonStyle="green-button"
           />
         </a>
+        <Link to="/editplanner">
         <StandardButton
-          buttonText="Edit Schedule"
+          buttonText="Edit Planner"
           buttonStyle="white-border-button"
         />
-        <a href="./EditCategories">
+        </Link>
+        <Link to="/editcategories">
           <StandardButton
             buttonText="My Categories"
             buttonStyle="white-border-button"
           />
-        </a>
+        </Link>
       </div>
       <div className={`${styles["log-out"]}`}>
         <StandardButton

@@ -1,9 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import StandardButton from "../components/Common/StandardButton";
 import CatCard from "../components/Common/CatCard";
 import CreateNewCard from "../components/Common/CreateNewCard";
 import CreateCatModal from "../components/Modals/CreateCatModal";
 import styles from "./EditCategories.module.scss";
+import { Link } from "react-router-dom";
 
 
 const EditCategories = () => {
@@ -75,8 +76,6 @@ const EditCategories = () => {
       return (
         <CatCard
           key={category.user_category_id}
-          updateCat={updateCat}
-          deleteCat={deleteCat}
           itemID={category.user_category_id}
           title={category.user_category_name}
           category={category}
@@ -93,12 +92,12 @@ const EditCategories = () => {
       <a onClick={toggleCreateModal} className={`${styles["new-card"]}`}>
         <CreateNewCard />
       </a>
-      <a href="./">
+      <Link to="/">
         <StandardButton
           buttonText="Back to Home"
           buttonStyle="small-green-border-button"
         />
-      </a>
+      </Link>
       <CreateCatModal toggleModal={toggleCreateModal} showModal={createModal} createCat={createCat}/>
     </div>
   );
