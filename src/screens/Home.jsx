@@ -9,12 +9,12 @@ const Home = () => {
     <div className={`${styles["screen"]}`}>
       <SproutLogo />
       <div className={`${styles["nav"]}`}>
-        <a href="./">
+      <Link to="/planner">
           <StandardButton
             buttonText="Open Planner"
             buttonStyle="green-button"
           />
-        </a>
+        </Link>
         <Link to="/editplanner">
         <StandardButton
           buttonText="Edit Planner"

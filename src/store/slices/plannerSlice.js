@@ -1,9 +1,10 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 
 
 
 const initialState = {
   planner: [],
+  plannerCatID: null,
 };
 
 const plannerSlice = createSlice({
@@ -14,9 +15,12 @@ const plannerSlice = createSlice({
       console.log(action.payload);
       state.planner = action.payload;
     },
-    reset: () => initialState
-  },
+    setPlannerCatID:(state, action) => {
+      console.log(action.payload);
+      state.plannerCatID = action.payload;
+    }
+  }
 });
 
-export const { setSelectedPlanner } = plannerSlice.actions;
+export const { setSelectedPlanner, setPlannerCatID } = plannerSlice.actions;
 export default plannerSlice.reducer;

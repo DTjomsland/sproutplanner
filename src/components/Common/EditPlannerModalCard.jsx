@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
-import styles from "./PlannerModalCard.module.scss";
+import styles from "./EditPlannerModalCard.module.scss";
 import StandardButton from "./StandardButton";
 import EditCatModal from "../Modals/EditCatModal";
 import { setSelectedCategory } from "../../store/slices/categorySlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const PlannerCard = (props) => {
+const EditPlannerModalCard = (props) => {
   
   const addPlannerCat = () => {
     props.setCatList(current => [...current, props.category])
@@ -24,4 +24,4 @@ const PlannerCard = (props) => {
   );
 };
 
-export default PlannerCard;
+export default EditPlannerModalCard;

@@ -2,20 +2,21 @@ import { useState, useEffect } from "react";
 import StandardButton from "../components/Common/StandardButton";
 import CreateNewCard from "../components/Common/CreateNewCard";
 import styles from "./EditPlanner.module.scss";
-import PlannerModal from "../components/Modals/PlannerModal";
-import PlannerCard from "../components/Common/PlannerCard";
+import EditPlannerModal from "../components/Modals/EditPlannerModal";
+import EditPlannerCard from "../components/Common/EditPlannerCard";
 import {setSelectedPlanner} from "../store/slices/plannerSlice"
 import { Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
 
 const EditPlanner = () => {
   const dispatch = useDispatch();
+  const planner = useSelector((state) => state.planner);
   const [cat, setCat] = useState([]);
-  const [catList, setCatList] = useState([]);
+  const [catList, setCatList] = useState(planner.planner);
   const [plannerModal, setPlannerModal] = useState(false);
   const [noScroll, setNoScroll] = useState(false);
 
-  const planner = useSelector((state) => state.planner.planner);
+  console.log(planner)
 
   console.log(planner);
   const cookieValue = document.cookie
@@ -23,8 +24,11 @@ const EditPlanner = () => {
     .find((row) => row.startsWith("token"))
     .split("=")[1];
 
-    const handleClick = () => {
+    const handleSave = () => {
       dispatch(setSelectedPlanner(catList))
+    }
+    const handleReset = () => {
+      setCatList([]);
     }
 
   const togglePlannerModal = () => {
@@ -72,12 +76,13 @@ const EditPlanner = () => {
   };
 
 
+
   const categories = catList.slice()
     .sort((a, b) => a.index - b.index)
     .map((category, index) => {
       return (
         <div  className={`${styles["cat-item"]}`}>
-          <PlannerCard
+          <EditPlannerCard
             key={index}
             itemID={category.user_category_id}
             title={category.user_category_name}
@@ -91,15 +96,10 @@ const EditPlanner = () => {
       </div>
       );
     });
+  
 
   return (
-    <div
-      className={
-        !noScroll
-          ? `${styles["categories"]}`
-          : `${styles["categories"]}${styles["no-scroll"]}`
-      }
-    >
+    <div className={`${styles["categories"]}`}>
       <h1>Edit Planner</h1>
       {categories}
       <a onClick={togglePlannerModal} className={`${styles["new-card"]}`}>
@@ -107,8 +107,13 @@ const EditPlanner = () => {
       </a>
       <StandardButton
           buttonText="Save Planner Schedule"
-          buttonStyle="small-green-border-button"
-          onClick={handleClick}
+          buttonStyle="green-button"
+          onClick={handleSave}
+        />
+      <StandardButton
+          buttonText="Clear Planner Schedule"
+          buttonStyle="white-border-button"
+          onClick={handleReset}
         />
       <Link to="/">
         <StandardButton
@@ -116,7 +121,7 @@ const EditPlanner = () => {
           buttonStyle="small-green-border-button"
         />
       </Link>
-      <PlannerModal
+      <EditPlannerModal
         cat={cat}
         toggleModal={togglePlannerModal}
         setCatList={setCatList}

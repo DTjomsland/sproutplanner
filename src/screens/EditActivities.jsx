@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch  } from "react-redux";
 import StandardButton from "../components/Common/StandardButton";
 import ActivityCard from "../components/Common/ActivityCard";
 import CreateNewCard from "../components/Common/CreateNewCard";
 import styles from "./EditActivities.module.scss";
 import { Link } from "react-router-dom";
+import {setSelectedCategory} from "../store/slices/categorySlice"
 import CreateActModal from "../components/Modals/CreateActModal";
 import DeleteActModal from "../components/Modals/DeleteActModal";
 
 const EditActivities = () => {
+  const dispatch = useDispatch();
   const [act, setAct] = useState([]);
   const [createModal, setCreateModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -40,6 +42,11 @@ const EditActivities = () => {
         console.log(err.message);
       });
   }, [cookieValue]);
+
+  const resetCategory = () => {
+    dispatch(setSelectedCategory(null))
+  }
+
 
   // Modal handlers
   const toggleCreateModal = () => {

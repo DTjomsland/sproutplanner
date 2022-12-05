@@ -1,49 +1,33 @@
-@import './../../variables.scss';
-  
-.cat-item {
-    margin-bottom: 40px;
-    width:75%;
-    max-width: 350px;
+@import "./../../variables.scss";
+
+.categories {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 25px;
 }
 
-.cat-card {
-    display: flex;
-    position: relative;
-    width:100%;
-    height: 200px;
-    background-color: $secondary-accent;
-    border-radius: 15px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
-    margin-bottom: 15px;
-    overflow: hidden;
-    
+.planner-card {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+  border-radius: 15px;
+  border: solid 3px white;
+  align-items: center;
+  justify-items: center;
 }
 
-.cat-card p {
-    font-family: $light-font;
+.planner-card p {
+  font-family: $light-font;
     font-size: 35px;
     align-self: center;
     text-align: center;
     margin: auto;
-    color: $primary-accent;
-}
-
-.edit-button {
-    background-image: url(../../images/delete.png);
-    background-position: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    border: none;
-    background-color: transparent;
-    margin: 5px 3px;
-    position: absolute;
-    top: 0;
-    right:0;
-    
-    
-}
-
-button {
-    cursor: pointer
+    color: $secondary-accent;
 }
