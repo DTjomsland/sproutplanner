@@ -7,6 +7,7 @@ class UserActivity(db.Model):
     user_activity_id = db.Column(db.Integer, primary_key=True)
     user_activity_name = db.Column(db.String)
     user_category_id = db.Column(db.Integer,  db.ForeignKey('user_category.user_category_id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     icons = db.relationship(
         "UserIcon",
         backref = "activity",

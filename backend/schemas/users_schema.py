@@ -3,15 +3,19 @@ from marshmallow.validate import Length, Email, ContainsOnly
 from marshmallow import fields
 from schemas.user_category_schema import UserCategorySchema
 from schemas.user_feeling_schema import UserFeelingSchema
+from schemas.user_activity_schema import UserActivitySchema
+from schemas.user_icon_schema import UserIconSchema
 
 #Schema for user table
 class UserSchema(ma.Schema):
     class Meta:
-        fields = ['user_id', 'user_name', 'user_email', 'user_password', 'categories', 'user_feelings']
+        fields = ['user_id', 'user_name', 'user_email', 'user_password', 'categories', 'user_feelings','activities', 'icons']
         load_only = ['user_id', 'user_email', 'user_password', 'admin']
     password = ma.String(validate=Length(min=8))
     categories = fields.List(fields.Nested(UserCategorySchema,  only = ["user_category_name", "activities"]))
     user_feelings = fields.List(fields.Nested(UserFeelingSchema))
+    activities = fields.List(fields.Nested(UserActivitySchema))
+    icons = fields.List(fields.Nested(UserIconSchema))
 
     # Validations
     # user_name = ma.String(required=True, validate=Length(min=1))

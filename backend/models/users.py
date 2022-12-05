@@ -15,6 +15,18 @@ class Users(db.Model):
         # Ensure the children of the feeling are deleted along with
         cascade="all, delete-orphan"
     )
+    activities = db.relationship(
+        "UserActivity",
+        backref= "user",
+        # Ensure the children of the feeling are deleted along with
+        cascade="all, delete-orphan"
+    )
+    icons = db.relationship(
+        "UserIcon",
+        backref= "user",
+        # Ensure the children of the feeling are deleted along with
+        cascade="all, delete-orphan"
+    )
     feelings = db.relationship(
         "UserFeeling",
         backref= "user",

@@ -1,12 +1,30 @@
 from main import db
 from flask import Blueprint, jsonify, request
-from flask_jwt_extended import jwt_required
+from flask_cors import CORS, cross_origin
+from flask_jwt_extended import get_jwt_identity, jwt_required
 from marshmallow.exceptions import ValidationError
 from models.user_activity import UserActivity
 from schemas.user_activity_schema import user_activity_schema, user_activities_schema
 
 # Default route for all user activity requests
 user_activity = Blueprint('user_activity', __name__, url_prefix='/useractivity')
+
+
+
+
+@user_activity.route('/', methods=['GET'])
+@cross_origin()
+# Requires token
+@jwt_required()
+def get_all_user_activities():
+    # Retrieve user information from jwt token
+    user = get_jwt_identity()
+    # Search for all instances in the category table where a row contains the user_id
+    # Filter results so only ids/category names are returned
+    activities = db.session.query(UserActivity).with_entities(UserActivity.user_activity_id, UserActivity.user_activity_name).filter(UserActivity.user_id == user)
+    # Returns jsonified categories for the specific user
+    result = user_activities_schema.dump(activities)
+    return jsonify(result)
 
 
 # Get request for user activities based on category (Cateogires are attached to users)
@@ -24,6 +42,7 @@ def get_user_activities(user_category_id):
 @user_activity.route('/<int:user_category_id>/create', methods=['POST'])
 @jwt_required()
 def new_activity(user_category_id):
+    user = get_jwt_identity()
     # Rename category ID from route
     category = user_category_id
     # Takes in data from the POST
@@ -35,7 +54,8 @@ def new_activity(user_category_id):
     # Creates a new activity object from entered information.
     activity = UserActivity(
         user_activity_name = activity_fields ['user_activity_name'],
-        user_category_id = category
+        user_category_id = category,
+        user_id = user
     )
     # Stage changes to the database
     db.session.add(activity)

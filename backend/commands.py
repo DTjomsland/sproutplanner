@@ -135,11 +135,13 @@ def seed_db():
     activity1 = UserActivity(
         user_activity_name = "Jogging",
         user_category_id = 2,
+        user_id = 1
     )
 
     activity2 = UserActivity(
         user_activity_name = 'Swimming',
         user_category_id = 2,
+        user_id = 1
     )
 
 

@@ -1,7 +1,7 @@
 import os
 from flask import Blueprint, jsonify, request, current_app
 from main import db
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import get_jwt_identity, jwt_required
 from models.user_icon import UserIcon
 from schemas.user_icon_schema import user_icon_schema, user_icons_schema
 from dotenv import load_dotenv
@@ -19,7 +19,19 @@ load_dotenv()
 # Default route for all user icon requests
 user_icon = Blueprint('user_icon', __name__, url_prefix='/usericon')
 
-
+@user_icon.route('/', methods=['GET'])
+@cross_origin()
+# Requires token
+@jwt_required()
+def get_all_user_icons():
+    # Retrieve user information from jwt token
+    user = get_jwt_identity()
+    # Search for all instances in the category table where a row contains the user_id
+    # Filter results so only ids/category names are returned
+    icons = db.session.query(UserIcon).with_entities(UserIcon.user_icon_id, UserIcon.user_icon_url).filter(UserIcon.user_id == user)
+    # Returns jsonified categories for the specific user
+    result = user_icons_schema.dump(icons)
+    return jsonify(result)
 # Get request for user icon linked with a specific activity
 @user_icon.route('/<int:user_activity_id>', methods=['GET'])
 def get_user_icons(user_activity_id):
@@ -36,6 +48,7 @@ def get_user_icons(user_activity_id):
 @cross_origin()
 
 def upload_file(user_activity_id):
+    user = get_jwt_identity()
     # Rename router variable
     activity = user_activity_id
     # Check to see if the activity has an image.  Return error if it does. (Shouldn't be prompted more than once in actual app.  For test use only)
@@ -64,7 +77,8 @@ def upload_file(user_activity_id):
             # Create a new icon object from the returned url and route variable
             icon = UserIcon(
                 user_icon_url = image_url,
-                user_activity_id = activity
+                user_activity_id = activity,
+                user_id = user
             )       
             db.session.add(icon)
             db.session.commit()
