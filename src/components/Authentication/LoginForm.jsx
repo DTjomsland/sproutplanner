@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styles from "./LoginForm.module.scss";
 import StandardButton from "../Common/StandardButton";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = (props) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -37,7 +39,7 @@ const saveCookie = (data) => {
       if (res.status === 200) {
         setEmail("");
         setPassword("");
-        // setMessage(false);
+        navigate("/")
       } else {
         // setMessage(true);
       }

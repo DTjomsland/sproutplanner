@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import styles from "./EditPlannerModal.module.scss";
 import { useSelector } from "react-redux";
 import EditPlannerModalCard from "../Common/EditPlannerModalCard";
-import ActivityCard from "../Common/ActivityCard";
+import ActivityCard from "../Common/CreateActivityCard";
 
 const PlannerModal = (props) => {
     const [act, setAct] = useState([]);
     const [isIcon, setIsIcon] = useState(false)
     const planner = useSelector((state) => state.planner);
+    const [actList, setActList] = useState([])
 
     // Retrieve JWT from browser
     const cookieValue = document.cookie
@@ -17,7 +18,7 @@ const PlannerModal = (props) => {
   
     // API call to retrieve activities
     useEffect(() => {
-      fetch(`http://localhost:5000/useractivity/${planner.plannerCatID}`, {
+      fetch(`http://localhost:5000/useractivity/`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -32,31 +33,43 @@ const PlannerModal = (props) => {
         .catch((err) => {
           console.log(err.message);
         });
-    }, [cookieValue, planner.plannerCatID]);
+      }, [cookieValue]);
 
+    console.log(planner)
+
+    useEffect(() => {
     const activities = act
     .sort((a, b) => a.user_category_id - b.user_category_id)
-    .map((activity) => {
-      return (
-        <ActivityCard
-          key={activity.user_activity_id}
-          // updateCat={updateCat}
-          // deleteCat={deleteCat}
-          itemID={activity.user_activity_id}
-          title={activity.user_activity_name}
-          activity={activity}
-          setIsIcon={setIsIcon}
-          isIcon={isIcon}
-        />
-      );
-    });
+    .filter((item) => item.user_category_id === planner.plannerCatID)
+    setActList(activities)
+  }, [cookieValue,planner.plannerCatID]);
+  console.log(act)
+
+
   
+
+  const currentList = actList.map((activity) => {
+    return (
+      <div onClick = {event => props.replaceCategory(event, activity)}>
+      <ActivityCard
+        key={activity.user_activity_id}
+        // updateCat={updateCat}
+        // deleteCat={deleteCat}
+        itemID={activity.user_activity_id}
+        title={activity.user_activity_name}
+        activity={activity}
+        setIsIcon={setIsIcon}
+        isIcon={isIcon}
+      />
+      </div>
+    );
+  });
 
   return (
     <div className={`${styles[props.showModal ? "overlay" : "close-modal"]}`}>
       <div className={`${styles["modal-content"]}`}>
         <div onClick={props.toggleModal} className={`${styles["x"]}`}></div>
-        {activities}
+        {currentList}
       </div>
     </div>
   );

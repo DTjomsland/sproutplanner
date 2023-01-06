@@ -4,7 +4,9 @@ import StandardButton from "../components/Common/StandardButton";
 import styles from "./Welcome.module.scss";
 
 const Welcome = () => {
-  
+
+
+ 
   return (
     <div className={`${styles["screen"]}`}>
       <SproutLogo />

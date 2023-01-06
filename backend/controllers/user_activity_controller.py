@@ -4,7 +4,9 @@ from flask_cors import CORS, cross_origin
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from marshmallow.exceptions import ValidationError
 from models.user_activity import UserActivity
+from models.user_icon import UserIcon
 from schemas.user_activity_schema import user_activity_schema, user_activities_schema
+from schemas.user_icon_schema import user_icon_schema, user_icons_schema
 
 # Default route for all user activity requests
 user_activity = Blueprint('user_activity', __name__, url_prefix='/useractivity')
@@ -19,11 +21,11 @@ user_activity = Blueprint('user_activity', __name__, url_prefix='/useractivity')
 def get_all_user_activities():
     # Retrieve user information from jwt token
     user = get_jwt_identity()
-    # Search for all instances in the category table where a row contains the user_id
-    # Filter results so only ids/category names are returned
-    activities = db.session.query(UserActivity).with_entities(UserActivity.user_activity_id, UserActivity.user_activity_name).filter(UserActivity.user_id == user)
-    # Returns jsonified categories for the specific user
-    result = user_activities_schema.dump(activities)
+    user_activities = UserActivity.query.filter_by(user_id=user).all()
+    result = user_activities_schema.dump(user_activities)
+    for activity in result:
+        user_icons = UserIcon.query.filter_by(user_activity_id=activity['user_activity_id']).all()
+        activity['icons'] = user_icons_schema.dump(user_icons)
     return jsonify(result)
 
 

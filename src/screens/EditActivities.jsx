@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch  } from "react-redux";
 import StandardButton from "../components/Common/StandardButton";
-import ActivityCard from "../components/Common/ActivityCard";
+import CreateActivityCard from "../components/Common/CreateActivityCard";
 import CreateNewCard from "../components/Common/CreateNewCard";
 import styles from "./EditActivities.module.scss";
 import { Link } from "react-router-dom";
@@ -75,7 +75,7 @@ const EditActivities = () => {
     .sort((a, b) => a.user_category_id - b.user_category_id)
     .map((activity) => {
       return (
-        <ActivityCard
+        <CreateActivityCard
           key={activity.user_activity_id}
           // updateCat={updateCat}
           // deleteCat={deleteCat}

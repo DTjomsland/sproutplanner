@@ -1,0 +1,56 @@
+@import './../../variables.scss';
+  
+.act-item {
+    margin-bottom: 40px;
+    width:75%;
+    // max-width: 350px;
+}
+
+.act-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width:100%;
+    height: 200px;
+    background-color: $secondary-accent;
+    border-radius: 15px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+    padding-top: 15px;
+    
+}
+
+.act-card p {
+    font-family: $light-font;
+    font-size: 35px;
+    align-self: center;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    color: $primary-accent;
+}
+
+.edit-button {
+    background-image: url(../../images/delete.png);
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: transparent;
+    margin: 5px 3px;
+    position: absolute;
+    top: 0;
+    right:0;
+    
+    
+}
+
+.act-card img {
+    width:30%;
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer
+}
